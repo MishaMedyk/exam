@@ -1,0 +1,23 @@
+<html ng-app="myApp">
+
+<head>
+    <link rel="stylesheet" href="./style.css">
+    <title>Екзаменаційна робота</title>
+</head>
+
+<body>
+<div class="container" ng-controller="itemsListController as list">
+    <h1>Каталог йогуртів</h1>
+    <ol>
+        <li ng-repeat="item in list.items" ng-class="{'hide': item.hide === true}">
+            Наявно {{ item.quantity }} ящиків йогурту марки "{{ item.mark }}"
+            <button ng-click="list.hideItem($index)">Приховати</button>
+            <button ng-click="list.removeItem($index)">Видалити</button>
+        </li>
+    </ol>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+<script src="./app.js"></script>
+</body>
+</html>
